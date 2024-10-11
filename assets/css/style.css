@@ -1,0 +1,268 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Orbitron, sans-serif;
+}
+
+img {
+  width: 18rem;
+  height: 18rem;
+}
+
+/* BOX-PADRE */
+
+.contenedor-grid {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto auto;
+  grid-template-areas:
+    "nav"
+    "filter"
+    "main"
+    "pages"
+    "footer";
+}
+
+/* NAV */
+
+.nav {
+  grid-area: nav;
+  color: white;
+  background-color: rgb(140, 40, 49);
+  height: 8vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  font-size: small;
+}
+
+.box-nav {
+  display: flex;
+  justify-content: center;
+}
+
+.nav img {
+  height: 60px;
+  width: 60px;
+  margin-right: 10px;
+}
+
+.lista-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  font-style: italic;
+}
+
+.lista-nav h3 {
+  margin: 10px;
+}
+
+/* FILTRO */
+.filter {
+  grid-area: filter;
+  background-image: linear-gradient(rgb(230, 171, 0), rgba(230, 173, 0, 0.8));
+  height: 10vh;
+}
+
+.box-filter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 7px;
+}
+
+.filter select {
+  width: 20rem;
+  height: 2rem;
+}
+
+.filter select:hover {
+  background-color: rgb(255, 255, 255);
+}
+
+.filter select:active {
+  box-shadow: inset -2px -2px 3px rgb(255 255 255 / 60%),
+    inset 2px 2px 3px rgb(0 0 0 / 60%);
+}
+
+/* MAIN'CARD */
+.box-main {
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 60vh;
+  gap: 1rem;
+  margin: 5px;
+  overflow: scroll;
+}
+
+.box-main input {
+  background-color: rgb(140, 40, 49);
+  color: white;
+  width: 10rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  border-radius: 3px;
+  text-shadow: 1px 1px 1px rgb(0, 0, 0);
+  font-size: large;
+  font-weight: 400;
+}
+
+.box-main input:hover {
+  background-color: grey;
+}
+
+.box-main input:active {
+  box-shadow: inset -2px -2px 3px rgb(255 255 255 / 60%),
+    inset 2px 2px 3px rgb(0 0 0 / 60%);
+}
+
+.box-card {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px;
+  gap: 3px;
+  padding: 5px;
+  width: 330px;
+  margin-left: 10px;
+}
+
+.box-card P,
+h4,
+img {
+  padding: 0;
+  margin: 0;
+}
+
+main p {
+  font-weight: bold;
+  font-size: x-large;
+  color: rgb(230, 123, 0);
+  text-shadow: 3px black;
+}
+/* PAGINACIÓN */
+.pages {
+  grid-area: pages;
+  background-image: linear-gradient(rgb(230, 171, 0), rgba(230, 173, 0, 0.8));
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pages a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+}
+.pages a.activo {
+  background-color: rgb(140, 40, 49);
+  color: white;
+}
+.pages a:hover:not(.activo) {
+  background-color: rgb(253, 210, 82);
+}
+
+.pages a {
+  border: 1px solid gray;
+}
+
+/* footer */
+.footer {
+  grid-area: footer;
+  background-color: rgb(140, 40, 49);
+  color: white;
+  height: 10vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.footer i {
+  margin: 5px;
+}
+
+/* MQ */
+
+/* hasta 768px */
+@media (max-width: 768px) {
+  .lista-nav {
+    display: none;
+  }
+
+  #link-fake {
+    display: none;
+  }
+}
+
+/* desde 768px */
+@media (min-width: 768px) {
+  .contenedor-grid {
+    grid-template-columns: 1fr 5fr;
+    grid-template-areas:
+      "nav filter"
+      "nav main "
+      "nav main "
+      "footer pages";
+  }
+
+  .nav {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+  }
+
+  .nav i {
+    display: none;
+  }
+
+  .box-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .box-main {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    align-items: center;
+    height: 80vh;
+    gap: 1rem;
+    overflow: scroll;
+  }
+
+  .filter {
+    height: 10vh;
+  }
+
+  .pages {
+    height: 10vh;
+  }
+
+  .footer {
+    height: 10vh;
+    font-size: 14px;
+  }
+  .footer p {
+    margin: 5px;
+  }
+
+  .footer i {
+    margin: 5px;
+  }
+}
